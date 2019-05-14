@@ -1,8 +1,9 @@
 # Euler-cycle
 This algorythm finds Euler cycle in an undirected graph.<br />
 Graph is read from input.txt file. It has to be in adjacent matrix form.<br />
+# Pseudocode
 procedure Euler(G)<br />
-STEKAS := ∅; CIKLAS := ∅;<br />
+&nbsp;&nbsp;STEKAS := ∅; CIKLAS := ∅;<br />
 v := bet kuri grafo G viršun ̄ e; ̇<br />
 STEKAS ⇐ v; /* Itraukiame  ̨ viršun ̄ e ̨ v i ̨steka*/  ̨<br />
 while STEKAS 6= ∅ do<br />
