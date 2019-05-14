@@ -24,21 +24,53 @@ class Main {
                 }
             }
         }
-        Euler(gretimumoMatrica, virsuniuSkaicius);
+        int countOdd = checkIfEuler(gretimumoMatrica, virsuniuSkaicius);
+        switch (countOdd) {
+            case 0:
+                System.out.println("Graph has an Euler circuit");
+                Euler(gretimumoMatrica, virsuniuSkaicius);
+                break;
+            case 1:
+                System.out.println("Graph has an Euler path");
+                Euler(gretimumoMatrica, virsuniuSkaicius);
+                break;
+            case 2:
+                System.out.println("Graph has an Euler path");
+                Euler(gretimumoMatrica, virsuniuSkaicius);
+                break;
+            default:
+                System.out.println("The graph is not Eulerian");
+                break;
+        }
     }
 
-    private static void Euler(int[][] gretimumoMatrica, int virsuniusSkaicius){
+    private static int checkIfEuler(int[][] gretimumoMatrica, int virsuniuSkaicius) {
+        int countVertex = 0;
+        int countOdd = 0;
+        for (int i = 0; i < virsuniuSkaicius; i++) {
+            for (int j = 0; j < virsuniuSkaicius; j++) {
+                if (gretimumoMatrica[i][j] == 1)
+                    countVertex++;
+            }
+            if (countVertex % 2 != 0)
+                countOdd++;
+        }
+        return countOdd;
+    }
+
+
+    private static void Euler(int[][] gretimumoMatrica, int virsuniusSkaicius) {
         ArrayList<Integer> STEKAS = new ArrayList<>();
         ArrayList<Integer> CIKLAS = new ArrayList<>();
         int v = 0;
         Integer u = null;
         STEKAS.add(v);
-        while(!STEKAS.isEmpty()){
+        while (!STEKAS.isEmpty()) {
             boolean hasNeighbours = false;
-            v = STEKAS.get(STEKAS.size()-1);
+            v = STEKAS.get(STEKAS.size() - 1);
             int i = 0;
-            while(i < virsuniusSkaicius){
-                if(gretimumoMatrica[v][i] == 1){
+            while (i < virsuniusSkaicius) {
+                if (gretimumoMatrica[v][i] == 1) {
                     u = i;
                     gretimumoMatrica[v][i] = 0;
                     gretimumoMatrica[i][v] = 0;
@@ -47,11 +79,11 @@ class Main {
                 }
                 i++;
             }
-            if(hasNeighbours){
+            if (hasNeighbours) {
                 STEKAS.add(u);
             } else {
-                CIKLAS.add(STEKAS.get(STEKAS.size()-1));
-                STEKAS.remove(STEKAS.size()-1);
+                CIKLAS.add(STEKAS.get(STEKAS.size() - 1));
+                STEKAS.remove(STEKAS.size() - 1);
             }
         }
         System.out.println(CIKLAS);
