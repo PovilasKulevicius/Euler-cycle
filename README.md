@@ -1,20 +1,20 @@
 # Euler-cycle
-This algorythm finds Euler cycle in an undirected graph.
-Graph is read from input.txt file. It has to be in adjacent matrix form.
-procedure Euler(G)
-STEKAS := ∅; CIKLAS := ∅;
-v := bet kuri grafo G viršun ̄ e; ̇
-STEKAS ⇐ v; /* Itraukiame  ̨ viršun ̄ e ̨ v i ̨steka*/  ̨
-while STEKAS 6= ∅ do
-v := top(STEKAS);
-if GRET[v] 6= ∅ then
-u ⇐ GRET[v];
-STEKAS ⇐ u;
-GRET[v] := GRET[v] \ {u};
-GRET[u] := GRET[u] \ {v};
-v := u;
-else
-v ⇐ STEKAS; /* Šaliname viršun ̄ e ̨ v iš steko */
-CIKLAS ⇐ v;
-end;
-end;
+This algorythm finds Euler cycle in an undirected graph.<br />
+Graph is read from input.txt file. It has to be in adjacent matrix form.<br />
+procedure Euler(G)<br />
+STEKAS := ∅; CIKLAS := ∅;<br />
+v := bet kuri grafo G viršun ̄ e; ̇<br />
+STEKAS ⇐ v; /* Itraukiame  ̨ viršun ̄ e ̨ v i ̨steka*/  ̨<br />
+while STEKAS 6= ∅ do<br />
+v := top(STEKAS);<br />
+if GRET[v] 6= ∅ then<br />
+u ⇐ GRET[v];<br />
+STEKAS ⇐ u;<br />
+GRET[v] := GRET[v] \ {u};<br />
+GRET[u] := GRET[u] \ {v};<br />
+v := u;<br />
+else<br />
+v ⇐ STEKAS; /* Šaliname viršun ̄ e ̨ v iš steko */<br />
+CIKLAS ⇐ v;<br />
+end;<br />
+end;<br />
